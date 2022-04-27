@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: $main-black;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  margin: 0;
+  padding: 0;
+}

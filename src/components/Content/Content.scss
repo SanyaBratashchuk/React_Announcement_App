@@ -1,0 +1,8 @@
+@import '../../GeneralStyles/placeholders.scss';
+@import '../../GeneralStyles/animations.scss';
+
+.Content {
+  @extend %stretch-panel;
+  @extend %appereanceAnimation;
+  flex-basis: 60%;
+}

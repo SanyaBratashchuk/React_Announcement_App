@@ -1,0 +1,14 @@
+@import './variables.scss';
+@import './animations.scss';
+
+%appereanceAnimation {
+  animation: appereance 1s linear;
+}
+
+%stretch-panel {
+  flex-grow: 1;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: $main-white;
+}

@@ -1,0 +1,13 @@
+@import '../../GeneralStyles/mixins.scss';
+
+.Announcement {
+  @include Square(200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: gray;
+  &__title {
+    font-size: 2rem;
+  }
+}
