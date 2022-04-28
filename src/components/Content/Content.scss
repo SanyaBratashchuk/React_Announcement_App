@@ -3,6 +3,6 @@
 
 .Content {
   @extend %stretch-panel;
-  @extend %appereanceAnimation;
+  @extend %appereanceFromLeftAnimation;
   flex-basis: 60%;
 }

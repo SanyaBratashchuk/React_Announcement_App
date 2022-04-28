@@ -1,9 +1,14 @@
 @import './variables.scss';
 @import './animations.scss';
 
-%appereanceAnimation {
-  animation: appereance 1s linear;
+%appereanceFromLeftAnimation {
+  animation: appereanceFromLeft 1s linear;
 }
+
+%appereanceFromRightAnimation {
+  animation: appereanceFromRight 1s linear;
+}
+
 
 %stretch-panel {
   flex-grow: 1;

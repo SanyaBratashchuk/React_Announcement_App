@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.scss';
+import { AddForm } from './components/AddForm/AddForm';
 import { AnnouncementsList } from './components/AnnouncementsList/AnnouncementList';
 import { Content } from './components/Content/Content';
 import { SideBar } from './components/SideBar/SideBar';
-import { Announcement } from './types/Announcement';
 
-const testList: Announcement[] = [
+/* const testList: Announcement[] = [
   {
     id: 15,
-    title: 'Hello',
+    title: 'Зробити домашнє завдання до завтраншнього ранку  Зробити домашнє завдання до завтраншнього ранку Зробити домашнє завдання до завтраншнього ранку',
     description: 'Hello World',
     dateAdded: '12.01.1999',
   },
@@ -90,27 +90,40 @@ const testList: Announcement[] = [
     description: 'Hello World',
     dateAdded: '12.01.1999',
   },    
-]
+] */
 
 function App() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const ShowApp = () => setIsOpen(true);
+  const [start, setStart] = useState<boolean>(false);
+  const [isAddFormVisible, setIsAddFormVisible] = useState<boolean>(false);
+  const showApp = () => setStart(true);
+  const showForm = () => setIsAddFormVisible(true);
 
   return (
     <div className="App">
-      {isOpen ? (
+      {start ? (
         <>
           <Content>
-            <AnnouncementsList announcements={testList} />
+            <>
+              {isAddFormVisible ? (
+                <AddForm />
+              ) : (
+                <button 
+                  className="button App__button--showForn"
+                  onClick={showForm}
+                >
+                  New announcement
+                </button>
+              )}
+              <AnnouncementsList />
+            </>
           </Content>
           <SideBar />
         </>
       ) : (
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="button App__button"
-          onClick={ShowApp}
+          onClick={showApp}
         >
           Go to Announcements
         </button>

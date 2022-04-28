@@ -1,5 +1,6 @@
 @import '../../GeneralStyles/mixins.scss';
 @import '../../GeneralStyles/variables.scss';
+@import '../../GeneralStyles/animations.scss';
 .Announcement {
   @include Square(200px);
   display: flex;
@@ -9,10 +10,10 @@
   background-color: gray;
   text-align: center;
   flex-wrap: wrap;
+  text-overflow: ellipsis;
+  overflow-y: hidden;
   &__title {
-    align-self: center;
-    max-width: 100px;
-    font-size: 1rem;
+    text-align: center;
   }
   &__buttons-container {
     height: max-content;
@@ -20,10 +21,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   
   &__button {
-
     padding: 4px;
     color: $main-white;
     &--delete {
@@ -35,5 +36,9 @@
       width: max-content;
       height: max-content;
     }
+  }
+
+  &--unmount {
+    animation: unMounting 1s linear;
   }
 }
