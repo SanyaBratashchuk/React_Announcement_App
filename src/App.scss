@@ -1,9 +1,19 @@
+@import './GeneralStyles/variables.scss';
 .App {
   display: flex;
   justify-content: stretch;
   align-content: stretch;
   min-height: 100vh;
-  &--start {
-    height: 100vh;
+  &__button {
+    align-self: center;
+    margin: auto;
+    width: 150px;
+    height: 70px;
+    background-color: $light-blue;
+    border-radius: 20px;
+    transition: all $transition-duration;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }

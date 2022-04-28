@@ -1,13 +1,39 @@
 @import '../../GeneralStyles/mixins.scss';
-
+@import '../../GeneralStyles/variables.scss';
 .Announcement {
   @include Square(200px);
   display: flex;
+  padding: 10px 5px;
   justify-content: center;
-  align-items: center;
   border-radius: 20px;
   background-color: gray;
+  text-align: center;
+  flex-wrap: wrap;
   &__title {
-    font-size: 2rem;
+    align-self: center;
+    max-width: 100px;
+    font-size: 1rem;
+  }
+  &__buttons-container {
+    height: max-content;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__button {
+
+    padding: 4px;
+    color: $main-white;
+    &--delete {
+      @include Square(30px);
+      border-radius: 50%;
+    }
+    &--details {
+      border-radius: 20px;
+      width: max-content;
+      height: max-content;
+    }
   }
 }
