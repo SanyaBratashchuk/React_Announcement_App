@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import { FC } from "react";
+import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAnnouncementActionCreator, selectAnnouncementActionCreator } from "../../store/Announcements/actions";
 import { getSelected } from "../../store/Announcements/selectors";
 import { Announcement as AnnouncementType } from "../../types/Announcement";
 import './Announcement.scss';
 
-export const Announcement: FC<Props> = ({ title, id }) => {
+export const Announcement = memo<Props>(({ title, id }) => {
   const dispatch = useDispatch();
   const deleteAnnouncement = (id: number) => dispatch(deleteAnnouncementActionCreator(id));
   const selectAnnouncement = (id: number) => dispatch(selectAnnouncementActionCreator(id));
@@ -35,5 +35,5 @@ export const Announcement: FC<Props> = ({ title, id }) => {
     </li>
   )
 }
-
+)
 type Props = Pick<AnnouncementType, 'title' | 'id'>;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAnnouncementActionCreator } from "../../store/Announcements/actions";
 import { getSelected } from "../../store/Announcements/selectors";
@@ -6,7 +6,7 @@ import { Announcement } from "../../types/Announcement";
 import { Form } from "../Form/Form";
 import './AddForm.scss'
 
-export const AddForm = () => {
+export const AddForm = memo(() => {
   const selected = useSelector(getSelected) as Announcement;
   const dispatch = useDispatch();
   const addAnnouncement = (announcement: Announcement) => dispatch(addAnnouncementActionCreator(announcement));
@@ -42,4 +42,4 @@ export const AddForm = () => {
       )}
     </div>
   )
-}
+})

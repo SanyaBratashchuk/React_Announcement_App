@@ -1,9 +1,9 @@
-import { FC, useMemo, useState } from "react"
+import { FC, memo, useMemo, useState } from "react"
 import { useSelector } from "react-redux"
 import { getAnnouncements } from "../../store/Announcements/selectors"
 import { Announcement } from "../Announcement/Announcement"
 import './AnnouncementsList.scss'
-export const AnnouncementsList: FC = () => {
+export const AnnouncementsList = memo(() => {
   const [query, setQuery] = useState('');
   const announcements = useSelector(getAnnouncements);
 
@@ -39,5 +39,5 @@ export const AnnouncementsList: FC = () => {
       <h1 className="AnnouncementsList__message">No Announcements added</h1>
     )
   )
-}
+})
 

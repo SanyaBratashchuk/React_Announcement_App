@@ -4,11 +4,11 @@ import { Announcement } from "../../types/Announcement";
 import { SimiliarList } from "../SimiliarList/SimiliarList";
 import './Details.scss';
 import '../Form/Form.scss';
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Form } from "../Form/Form";
 import { editAnnouncementActionCretor } from "../../store/Announcements/actions";
 
-export const Details = () => {
+export const Details = memo(() => {
   const selectedAnnouncement = useSelector(getSelected) as Announcement;
   const announcements = useSelector(getAnnouncements);
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -95,4 +95,4 @@ export const Details = () => {
       )}
     </div>
   );
-}
+})
