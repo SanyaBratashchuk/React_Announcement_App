@@ -1,4 +1,4 @@
-import { FC, memo, useMemo, useState } from "react"
+import { memo, useMemo, useState } from "react"
 import { useSelector } from "react-redux"
 import { getAnnouncements } from "../../store/Announcements/selectors"
 import { Announcement } from "../Announcement/Announcement"
