@@ -1,9 +1,11 @@
-@import './GeneralStyles/variables.scss';
+@import './_tools/variables';
+
 .App {
   display: flex;
   justify-content: stretch;
   align-content: stretch;
   min-height: 100vh;
+
   &__button {
     align-self: center;
     margin: auto;
@@ -12,6 +14,7 @@
     background-color: $light-blue;
     border-radius: 20px;
     transition: all $transition-duration;
+
     &:hover {
       transform: scale(1.05);
     }

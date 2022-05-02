@@ -1,0 +1,10 @@
+@import '../../_tools/variables';
+.input {
+  border-radius: 20px;
+  padding: 4px 6px;
+  background-color: $main-gray;
+  border: 2px solid transparent;
+  &--invalid {
+    border-color: $main-red;
+  }
+}

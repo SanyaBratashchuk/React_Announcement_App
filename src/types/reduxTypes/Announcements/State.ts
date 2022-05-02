@@ -2,5 +2,5 @@ import { Announcement } from "../../Announcement";
 
 export interface DefaultAnnouncementsState {
   announcements: Announcement[],
-  selectedId: number,
+  selected: Announcement | null,
 }

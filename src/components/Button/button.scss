@@ -1,3 +1,5 @@
+@import '../../_tools/mixins';
+
 .button {
   display: flex;
   justify-content: center;
@@ -5,6 +7,10 @@
   outline: none;
   border: none;
   cursor: pointer;
+  &--close {
+    @include Square(30px);
+    border-radius: 50%;
+  }
   background-color: $light-blue;
   &:hover {
     background-color: $mediun-blue;

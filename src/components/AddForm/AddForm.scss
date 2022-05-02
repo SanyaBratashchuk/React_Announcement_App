@@ -1,14 +1,6 @@
-@import '../../GeneralStyles/placeholders.scss';
+@import '../../_tools/placeholders';
+@import '../../_tools/variables';
+
 .AddForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   margin-bottom: 15px;
-  @extend %appereanceFromLeftAnimation;
-  &__button {
-    width: 70px;
-    height: 30px;
-    border-radius: 20px;
-    align-self: center;
-  }
 }

@@ -1,8 +1,9 @@
-@import '../../GeneralStyles/placeholders.scss';
-@import '../../GeneralStyles/animations.scss';
+@import '../../_tools/placeholders';
 
 .Content {
   @extend %stretch-panel;
-  @extend %appereanceFromLeftAnimation;
+  @extend %appereanceAnimation;
+  display: flex;
+  flex-direction: column;
   flex-basis: 60%;
 }

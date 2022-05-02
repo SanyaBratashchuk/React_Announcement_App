@@ -1,60 +1,45 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addAnnouncementActionCreator } from "../../store/Announcements/actions";
+import { getSelected } from "../../store/Announcements/selectors";
 import { Announcement } from "../../types/Announcement";
+import { Form } from "../Form/Form";
 import './AddForm.scss'
+
 export const AddForm = () => {
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const selected = useSelector(getSelected) as Announcement;
   const dispatch = useDispatch();
+  const addAnnouncement = (announcement: Announcement) => dispatch(addAnnouncementActionCreator(announcement));
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-  const addAnnouncement = (announcement:Announcement) => dispatch(addAnnouncementActionCreator(announcement));
-  
-  const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    
-    switch(name) {
-      case 'title':
-        setTitle(value);
-        break;
-      case 'description':
-        setDescription(value);
-    }
-  };
-
-  const handlesubmit = (event:React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const newAnnouncement:Announcement = {
+  const addNewAnnouncement = (title:string, description:string) => {
+    const newAnnouncement: Announcement = {
       id: Math.random(),
       title,
       description,
-      dateAdded: new Date().toLocaleDateString(),
+      dateAdded: new Date().toLocaleString(),
     }
     addAnnouncement(newAnnouncement);
   }
 
   return (
-    <form className="AddForm" onSubmit={handlesubmit}>
-      <input
-        type="text"
-        name="title"
-        placeholder="title"
-        className="input AddForm__input"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        name="description"
-        placeholder="description"
-        className="input AddForm__input"
-        onChange={handleChange}
-      />
-      <button 
-        type="submit"
-        className="button AddForm__button"
+    <div className="AddForm">
+      {isFormOpen ? (
+        <Form 
+          onSubmit={addNewAnnouncement} 
+          formType="add" 
+          announcement={selected}
+          hideForm={setIsFormOpen} 
+        />
+      ) : (
+      <button
+        type="button"
+        className="button form__button--showForm"
+        onClick={() => setIsFormOpen(true)}
       >
-        Add
+        Add new Announcement
       </button>
-    </form>
+      )}
+    </div>
   )
 }

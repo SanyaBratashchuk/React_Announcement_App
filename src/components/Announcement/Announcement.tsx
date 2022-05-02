@@ -1,21 +1,29 @@
+import classNames from "classnames";
 import { FC } from "react";
-import { useDispatch } from "react-redux";
-import { deleteAnnouncementActionCreator } from "../../store/Announcements/actions";
-import { Announcement as AnnouncementType} from "../../types/Announcement";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAnnouncementActionCreator, selectAnnouncementActionCreator } from "../../store/Announcements/actions";
+import { getSelected } from "../../store/Announcements/selectors";
+import { Announcement as AnnouncementType } from "../../types/Announcement";
 import './Announcement.scss';
 
-export const Announcement:FC<Props> = ({ title, id }) => {
+export const Announcement: FC<Props> = ({ title, id }) => {
   const dispatch = useDispatch();
-  const deleteAnnouncement = (id:number) => dispatch(deleteAnnouncementActionCreator(id));
-  
-
+  const deleteAnnouncement = (id: number) => dispatch(deleteAnnouncementActionCreator(id));
+  const selectAnnouncement = (id: number) => dispatch(selectAnnouncementActionCreator(id));
+  const selected = useSelector(getSelected);
   return (
-    <li className="Announcement AnnouncementsList__item">
+    <li className={classNames('Announcement', 'AnnouncementsList__item', {
+      'Announcement--selected': id === selected?.id,
+    })}>
       <div className="Announcement__buttons-container">
-        <button 
-        className="button Announcement__button Announcement__button--details">Show details</button>
-        <button 
-          className=" button Announcement__button Announcement__button--delete"
+        <button
+          className="button Announcement__button Announcement__button--details"
+          onClick={() => selectAnnouncement(id)}
+        >
+          Show details
+        </button>
+        <button
+          className=" button button--close Announcement__button Announcement__button--delete"
           onClick={() => deleteAnnouncement(id)}
         >
           X

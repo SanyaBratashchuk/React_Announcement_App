@@ -1,0 +1,26 @@
+@import '../../_tools/variables';
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  
+  &__message {
+    text-align: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-bottom: 20px;
+    width: 300px;
+    background-color: $main-gray;
+    border-radius: 20px;
+  }
+  &__title {
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+}

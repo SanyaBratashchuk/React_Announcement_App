@@ -1,12 +1,14 @@
-@import '../../GeneralStyles/placeholders.scss';
+@import '../../_tools/placeholders';
 
 .SideBar { 
     @extend %stretch-panel;
-    @extend %appereanceFromRightAnimation;
+    @extend %appereanceAnimation;
     flex-basis: 30%;
     position: relative;
     &__content-container {
       position: sticky;
+      display: flex;
+      justify-content: center;
       top: 20px;
     }
 }

@@ -1,8 +1,9 @@
-@import '../../GeneralStyles/mixins.scss';
-@import '../../GeneralStyles/variables.scss';
-@import '../../GeneralStyles/animations.scss';
+@import '../../_tools/mixins';
+@import '../../_tools/variables';
+@import '../../_tools/placeholders';
 .Announcement {
   @include Square(200px);
+  @extend %appereanceAnimation;
   display: flex;
   padding: 10px 5px;
   justify-content: center;
@@ -10,10 +11,15 @@
   background-color: gray;
   text-align: center;
   flex-wrap: wrap;
-  text-overflow: ellipsis;
-  overflow-y: hidden;
+  transition: transform $transition-duration;
+  &--selected {
+    transform: scale(1.05);
+  }
+  
   &__title {
-    text-align: center;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   &__buttons-container {
     height: max-content;
@@ -27,18 +33,11 @@
   &__button {
     padding: 4px;
     color: $main-white;
-    &--delete {
-      @include Square(30px);
-      border-radius: 50%;
-    }
+    
     &--details {
       border-radius: 20px;
       width: max-content;
       height: max-content;
     }
-  }
-
-  &--unmount {
-    animation: unMounting 1s linear;
   }
 }
