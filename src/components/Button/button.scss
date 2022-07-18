@@ -9,7 +9,7 @@
   cursor: pointer;
   &--close {
     @include Square(30px);
-    border-radius: 50%;
+    border-radius: 51%;
   }
   background-color: $light-blue;
   &:hover {
